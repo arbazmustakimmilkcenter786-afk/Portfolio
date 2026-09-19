@@ -11,7 +11,20 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="cursor-glow"></div>
+  <div class="page-loader" id="pageLoader" aria-hidden="true">
+    <div class="loader-core">
+      <span class="loader-mark">AM</span>
+      <span class="loader-line"><i></i></span>
+      <span class="loader-caption">Preparing the interface</span>
+    </div>
+  </div>
+
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="custom-cursor" id="customCursor" aria-hidden="true">
+    <span class="cursor-dot"></span>
+    <span class="cursor-ring"></span>
+    <span class="cursor-label"></span>
+  </div>
 
   <header class="navbar" id="navbar">
     <a href="#home" class="logo static-brand"><span class="brand-mark">A</span><span>Arbaz Mansuri</span></a>
@@ -24,9 +37,9 @@
     <div class="nav-actions">
       <a class="resume-btn resume-link" href="assets/resume.pdf" target="_blank" rel="noopener" download>Resume ↗</a>
       <a class="resume-btn static-talk" href="#contact">Let’s talk</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">☰</button>
     </div>
-    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
   </header>
 
   <main>
@@ -50,6 +63,7 @@
           <p class="static-intro">Data Analyst turning raw, unstructured data into dashboards and decisions — with SQL, Power BI, and Advanced Excel.</p>
           <a class="static-cta" href="#projects">Explore my work <span>↗</span></a>
           <a class="static-cta github-cta" href="https://github.com/arbazmustakimmilkcenter786-afk" target="_blank" rel="noopener">GitHub <span>↗</span></a>
+          <a class="static-cta live-cta" href="https://matchpoint1-01.streamlit.app/" target="_blank" rel="noopener noreferrer">Live Project <span>↗</span></a>
         </div>
 
         <div class="static-tagline">
@@ -99,9 +113,12 @@
     </section>
   </main>
 
-  <footer><div class="logo"><span>&lt;</span>AM<span>/&gt;</span></div><p>© 2026 Arbaz Mansuri. Built with HTML, CSS & JavaScript.</p><div class="footer-links"><a href="https://github.com/arbazmustakimmilkcenter786-afk" target="_blank">GitHub</a><a href="https://linkedin.com/in/arbaz-mansuri-52840a431" target="_blank">LinkedIn</a></div></footer>
+  <footer><div class="logo"><span>&lt;</span>AM<span>/&gt;</span></div><p>© 2026 Arbaz Mansuri. Built with HTML, CSS & JavaScript.</p><div class="footer-links"><a href="https://github.com/arbazmustakimmilkcenter786-afk" target="_blank" rel="noopener noreferrer" data-cursor="OPEN">GitHub</a><a href="https://linkedin.com/in/arbaz-mansuri-52840a431" target="_blank" rel="noopener noreferrer" data-cursor="OPEN">LinkedIn</a></div></footer>
   <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
-  <div class="modal" id="projectModal" aria-hidden="true"><div class="modal-box"><button class="modal-close" id="modalClose">×</button><p class="eyebrow" id="modalCategory"></p><h2 id="modalTitle"></h2><p id="modalDescription"></p><div class="tag-list" id="modalTags"></div><a id="modalLink" class="text-link" href="#" target="_blank">View project →</a></div></div>
+  <div class="modal" id="projectModal" aria-hidden="true"><div class="modal-box"><button class="modal-close" id="modalClose">×</button><p class="eyebrow" id="modalCategory"></p><h2 id="modalTitle"></h2><p id="modalDescription"></p><div class="tag-list" id="modalTags"></div><div class="modal-actions">
+          <a id="modalLink" class="text-link" href="#" target="_blank" rel="noopener noreferrer">View project →</a>
+          <a id="modalLiveLink" class="text-link live-link" href="#" target="_blank" rel="noopener noreferrer">Live demo →</a>
+        </div></div></div>
   <script src="script.js"></script>
 </body>
 </html>
